@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changing Page</title>
+    <style>
+        body {
+            font-size: larger;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: lightblue;
+            transition: background-color 0.5s;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #counter {
+            font-size: 24px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter</h1>
+    <button onclick="changeColor()">Change Color</button>
+    <div id="counter">0</div>
+    <button onclick="increase()">Increase</button>
+    <button onclick="reset()">reset</button>
+    <button onclick="decrease()">Decrease</button>
+
+    <script>
+        let n = 0;
+
+        function changeColor() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function updateCounter() {
+            document.getElementById('counter').innerText = n;
+        }
+
+        function increase() {
+            n++;
+            updateCounter();
+        }
+        function reset() {
+            n=0;
+            updateCounter();
+        }
+
+        function decrease() {
+            n--;
+            updateCounter();
+        }
+    </script>
+</body>
+</html>
